@@ -46,6 +46,11 @@ body {
     justify-content: space-between;
     font-size: 1.5em;
     font-weight: bold;
+    height: 20px;
+}
+
+h3 {
+    line-height: 0px;
 }
 
 button {
@@ -108,11 +113,12 @@ th {
 .karnaugh-map table {
     width: auto;
     margin: 0 auto;
+    line-height: 15px;
 }
 
 .karnaugh-map input[type="checkbox"] {
     width: 20px;
-    height: 20px;
+    height: 15px;
 }
 
 #keyboard {
