@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カルノー図 RTA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main-container">
+        <!-- ルール説明画面 -->
+        <div id="rules-screen" class="screen active">
+            <h1>カルノー図 RTA</h1>
+            <p>ルール説明:</p>
+            <ul>
+                <li>4bitの真偽値表からカルノー図を完成させる問題 (4問)</li>
+                <li>4bitのカルノー図から論理式を立てる問題 (2問)</li>
+                <li>4bitの真偽値表からカルノー図を作り、論理式を立てる問題 (1問)</li>
+                <li>同じ問題で5回連続で間違えると終了です。</li>
+            </ul>
+            <button id="start-button">スタート</button>
+        </div>
+
+        <!-- ゲーム画面 -->
+        <div id="game-screen" class="screen">
+            <div id="header">
+                <div id="timer">0.00</div>
+                <div id="question-counter"></div>
+            </div>
+            <div id="problem-area">
+                <!-- 問題（真偽値表やカルノー図）がここに表示される -->
+            </div>
+            <div id="answer-area">
+                <!-- 回答（カルノー図のチェックボックスや論理式入力欄）がここに表示される -->
+            </div>
+            <div id="keyboard-area">
+                <!-- スマホ用キーボードがここに表示される -->
+            </div>
+            <button id="submit-button">回答</button>
+        </div>
+
+        <!-- 結果画面 -->
+        <div id="result-screen" class="screen">
+            <h1>結果</h1>
+            <h2 id="result-title"></h2>
+            <p id="final-time-container">タイム: <span id="final-time"></span></p>
+            <div id="correct-answer-area"></div>
+            <button id="retry-button">もう一度挑戦</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

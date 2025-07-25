@@ -1,0 +1,111 @@
+body {
+    font-family: sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#main-container {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.screen {
+    display: none; /* 最初はすべての画面を非表示 */
+    flex-direction: column;
+    height: 100%;
+}
+
+.screen.active {
+    display: flex; /* activeクラスがついた画面のみ表示 */
+}
+
+#rules-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#game-screen {
+    justify-content: space-between;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.table-container {
+    max-height: 200px; /* or any height */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.karnaugh-map table {
+    width: auto;
+    margin: 0 auto;
+}
+
+.karnaugh-map input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}
+
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+#keyboard .key {
+    font-size: 1.2em;
+}
