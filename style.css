@@ -69,9 +69,15 @@ button:hover {
 }
 
 .table-container {
-    max-height: 200px; /* or any height */
-    overflow-y: auto;
     border: 1px solid #ccc;
+    line-height: 15px;
+}
+
+.truth-table-wrapper {
+    display: flex;
+    justify-content: center; /* 間隔を狭める */
+    gap: 5px;
+    flex-wrap: wrap;
 }
 
 table {
@@ -86,7 +92,7 @@ th, td {
 }
 
 .truth-table-divider {
-    border-top: 2px solid #000;
+    border-top: 2px solid #ccc;
 }
 
 .input-note {

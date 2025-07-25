@@ -32,9 +32,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- HTML Generation ---
     const createTruthTableHTML = (table) => {
-        let html = '<h3>真理値表</h3><div class="table-container"><table><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>F</th></tr></thead><tbody>';
-        for (let i = 0; i < 16; i++) {
-            const rowClass = (i > 0 && i % 4 === 0) ? 'class="truth-table-divider"' : '';
+        let html = '<h3>真理値表</h3><div class="truth-table-wrapper">'; // New wrapper
+
+        // First table (rows 0-7)
+        html += '<div class="table-container"><table><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>F</th></tr></thead><tbody>';
+        for (let i = 0; i < 8; i++) {
+            const rowClass = (i === 4) ? 'class="truth-table-divider"' : ''; // Divider after 4th row (index 3)
             html += `<tr ${rowClass}>
                 <td>${(i >> 3) & 1}</td>
                 <td>${(i >> 2) & 1}</td>
@@ -44,6 +47,22 @@ document.addEventListener('DOMContentLoaded', () => {
             </tr>`;
         }
         html += '</tbody></table></div>';
+
+        // Second table (rows 8-15)
+        html += '<div class="table-container"><table><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>F</th></tr></thead><tbody>';
+        for (let i = 8; i < 16; i++) {
+            const rowClass = (i === 12) ? 'class="truth-table-divider"' : ''; // Divider after 12th row (index 11)
+            html += `<tr ${rowClass}>
+                <td>${(i >> 3) & 1}</td>
+                <td>${(i >> 2) & 1}</td>
+                <td>${(i >> 1) & 1}</td>
+                <td>${i & 1}</td>
+                <td><b>${table[i]}</b></td>
+            </tr>`;
+        }
+        html += '</tbody></table></div>';
+
+        html += '</div>'; // Close wrapper
         return html;
     };
 
@@ -332,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 correctAnswerHTML += createKarnaughMapHTML(q.truthTable, true);
             }
             if (q.type.includes('ex')) {
-                 correctAnswerHTML += `<p>論理式 (例): ${q.correctExpression}</p>`;
+                correctAnswerHTML += `<p>論理式 (例): ${q.correctExpression}</p>`;
             }
             correctAnswerArea.innerHTML = correctAnswerHTML;
         }
