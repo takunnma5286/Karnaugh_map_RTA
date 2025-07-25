@@ -34,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const createTruthTableHTML = (table) => {
         let html = '<h3>真理値表</h3><div class="table-container"><table><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>F</th></tr></thead><tbody>';
         for (let i = 0; i < 16; i++) {
-            html += `<tr>
+            const rowClass = (i > 0 && i % 4 === 0) ? 'class="truth-table-divider"' : '';
+            html += `<tr ${rowClass}>
                 <td>${(i >> 3) & 1}</td>
                 <td>${(i >> 2) & 1}</td>
                 <td>${(i >> 1) & 1}</td>
@@ -221,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
             answerArea.innerHTML = createKarnaughMapHTML();
         } else if (q.type === 'km_to_ex') {
             problemArea.innerHTML = createKarnaughMapHTML(q.truthTable, true);
-            answerArea.innerHTML = '<input type="text" id="expression-input" placeholder="論理式を入力">';
+            answerArea.innerHTML = '<input type="text" id="expression-input" placeholder="論理式を入力"><p class="input-note">注: 否定(¬)は、Aの否定であれば「¬A」のように入力します。例: ¬A+B¬C → not(A) + B*not(C)</p>';
             createKeyboard();
         } else if (q.type === 'tt_to_km_to_ex') {
             problemArea.innerHTML = createTruthTableHTML(q.truthTable);
@@ -362,6 +363,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    const debugNextQuestion = () => {
+        if (state.gameFinished) {
+            console.log("Game is already finished.");
+            return;
+        }
+        console.log(`DEBUG: Force advancing to the next question.`);
+        state.mistakeCount = 0;
+        state.currentQuestionIndex++;
+        displayQuestion();
+    };
+
     // --- Event Listeners ---
     startButton.addEventListener('click', () => {
         resetState();
@@ -378,4 +390,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Initial Setup ---
     resetState();
+    // デバッグ用: コンソールから次の問題へ進む
+    window.next = debugNextQuestion;
 });

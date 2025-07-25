@@ -85,6 +85,16 @@ th, td {
     padding: 8px;
 }
 
+.truth-table-divider {
+    border-top: 2px solid #000;
+}
+
+.input-note {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 5px;
+}
+
 th {
     background-color: #f2f2f2;
 }
