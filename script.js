@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let html = '<h3>真理値表</h3><div class="truth-table-wrapper">'; // New wrapper
 
         // First table (rows 0-7)
-        html += '<div class="table-container"><table><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>F</th></tr></thead><tbody>';
+        html += '<div class="table-container"><table><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>Y</th></tr></thead><tbody>';
         for (let i = 0; i < 8; i++) {
             const rowClass = (i === 4) ? 'class="truth-table-divider"' : ''; // Divider after 4th row (index 3)
             html += `<tr ${rowClass}>
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         html += '</tbody></table></div>';
 
         // Second table (rows 8-15)
-        html += '<div class="table-container"><table><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>F</th></tr></thead><tbody>';
+        html += '<div class="table-container"><table><thead><tr><th>A</th><th>B</th><th>C</th><th>D</th><th>Y</th></tr></thead><tbody>';
         for (let i = 8; i < 16; i++) {
             const rowClass = (i === 12) ? 'class="truth-table-divider"' : ''; // Divider after 12th row (index 11)
             html += `<tr ${rowClass}>
